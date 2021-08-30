@@ -1,0 +1,67 @@
+1. Goal
+    - Create a clean and simple Robinhood-like web app that allows 
+    the user to view up to date information on a list of tickers. 
+    - Stack
+        a. Frontend
+            i. React Hooks based website to show updated ticker 
+            information
+        b. Backend
+            i. Ticker API which provides ticker information to
+            the Node Server
+            ii. Node.js server that handles API calls from the Frontend
+            to the Ticker API
+2. Examples
+    - Example #1
+        a. Frontend
+            i. All Stocks 
+                - User opens web app -> sees a list of five tickers 
+                that update every second with new new price 
+                information
+            ii. Individual Stock
+                - User opens web app -> sees a list of five tickers 
+                that update every second with new new price 
+                information -> User clicks on one ticker -> User
+                is redirected to a page with the ticker information
+        b. Backend
+            i. All Stocks
+                - User opens web app -> sees a list of five tickers 
+                that update every second with new price 
+                information -> The ticker data is passed through the
+                server where data is being requested and passed 
+                every second.
+                - The Ticker data (price) is updated within 5% of it's previous
+                price. 
+                    a. Cyclical
+                        i. Up once by 5%, down once by 5% == one cycle
+            ii. Individual Stock
+                - User opens web app -> sees a list of five tickers 
+                that update every second with new new price 
+                information -> User clicks on one ticker -> User
+                is redirected to a page with the ticker information
+                -> The ticker data is passed through the
+                server where data is being requested and passed 
+                every second.
+                - The Ticker data (price) is updated within 5% of it's previous
+                price. 
+                    a. Cyclical
+                        i. Up once by 5%, down once by 5% == one cycle
+        c. Ticker API
+            - The API needs to update stocks every second
+                a. Cyclical
+                    i. Up once by 5%, down once by 5% == one cycle
+            - Types of data
+                a. All Stocks
+                    i. Ticker
+                    ii. Price
+                b. Individual Stock
+                    i. Ticker
+                    ii. Name of Co
+                    i. Price 
+                    ii. Market Cap
+                    iii. Daily Change
+3. Implementation
+    - Issues
+    - Steps
+        a. Frontend
+            i. npx create-react-app frontend in terminal
+    - Summary
