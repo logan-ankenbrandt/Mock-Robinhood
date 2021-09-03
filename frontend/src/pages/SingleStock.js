@@ -33,7 +33,7 @@ function SingleStock(props) {
         <Container>
             <h1>{symbol}</h1>
             <hr />
-            <p>{price}</p>
+            <p>{price[price.length - 1]}</p>
         </Container>
     );
 }

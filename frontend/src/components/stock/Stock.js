@@ -5,7 +5,10 @@ import { Link, withRouter } from 'react-router-dom';
 function Stock(props) {
 
     const displayStock = (props) => {
-        const { stocks } = props;
+        
+      // Update the stocks variable 
+      // every second.
+      const { stocks } = props;
 
         if (stocks.length > 0) {
           return stocks.map((stock, index) => {
@@ -15,7 +18,7 @@ function Stock(props) {
                 <Link to={`/${stock.ticker}`}>
                   <hr />
                   <p>
-                    ({stock.ticker}) {stock.price}
+                    ({stock.ticker}) {stock.price[stock.price.length - 1]}
                   </p>
                 </Link>
               </div>

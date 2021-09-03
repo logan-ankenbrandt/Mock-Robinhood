@@ -10,7 +10,10 @@ function StocksList() {
   const url = 'http://localhost:8000'
   
   useEffect(() => {
-    retrieveStocks();
+    setTimeout(function request () {
+      retrieveStocks();
+      setTimeout(request, 250);
+    }, 250);
   }, []);
 
   const retrieveStocks = ()  => {
@@ -18,12 +21,6 @@ function StocksList() {
       .get(`${url}/api/stocks`)
       .then((response) => {
         getStock(response.data);
-        let dataLength = response.data.length;
-        for (let i = 0; i < dataLength; i++) {
-          let stock = response.data[i];
-          let price = stock.price;
-          console.log(price + (price *.05));
-        }
       })
       .catch((error) => {
         console.log(`Error: ${error}`);
