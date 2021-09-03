@@ -71,8 +71,29 @@ curl http://localhost:8000/api/stocks/6130249830810f0e38660090 -X DELETE
 1. Implementation
     - Steps
         a. Frontend
-            i. Since there is a steady stream of
-            data, no updates needed to be made. 
+            i. Adjusted the StockList component
+            to re-render every 1/4th of a second 
+            to find new data.
+            ii. Adjusted the SingleStock component 
+            to only pull from the back of the newly initialized 
+            prices array.
         b. Server 
+            i. In the index.js file, initialize a function that
+            will be called every 1/2 of a second.
+            ii. In the models/Stock.js file, I wrapped the price 
+            field in a new array.
         c. API
+            i. In the api/index.js file, initialized the updatePrices()
+            function to update the prices array in the database when called.
     - Summary
+        a. This stage in the project was focused on the core functionality - 
+        the ability to continuously update the prices array in the database.
+        It required me to use the axios .patch() method to update the prices
+        in the API.
+        b. Furthermore, I had to take into considerations the network
+        latency of the server. I had to make sure that the prices array
+        was updated in the database before the frontend was updated. This led me
+        to using a recursive version of the setTimeout() function to update the 
+        prices array in the database without stacking the requests, and it led
+        me to deleting the first two elements in the prices array every other 
+        iteration to ensure that the server could handle the requests.

@@ -61,7 +61,81 @@
                     iii. Daily Change
 3. Implementation
     - Issues
+        a. Frontend
+            ii. Components
+                - Stock 
+                    a. I had to learn how to share the
+                    state of the component with a parent
+                    component for functional components.
+                - StockList
+                    a. I had to learn how to use
+                    axios with an express server to
+                    present data to the frontend.
+        b. Backend
+            ii. Technologies
+                - I hadn't used Express or Mongoose before,
+                so I had to learn how to use those technologies
+                to create the server.
     - Steps
         a. Frontend
-            i. npx create-react-app frontend in terminal
-    - Summary
+            i. Removed unnecessary:
+                - Files
+                    a. frontend/public/logo192.png
+                    b. frontend/public/logo512.png
+                    c. frontend/src/logo.svg
+                - Code 
+                    a. frontend/src/App.js
+                        i. Removed the boilerplate React
+                        code
+                    b. frontend/src/index.css
+                        i. Removed the boilerplate React
+                        code
+            ii. Added:
+                - Directories
+                    a. frontend/src/components
+                    b. frontend/src/pages
+                - Files
+                    a. frontend/src/components/stock/Stock.js
+                        i. The file that contains the Stock
+                        component
+                    b. frontend/src/components/stock/StockList.js
+                        i. The file that contains the StockList
+                        component
+                    c. frontend/src/pages/AllStocks.js
+                        i. The file that contains the AllStocks
+                        page
+                    d. frontend/src/pages/SingleStock.js
+                        i. The file that contains the SingleStock
+                        page
+                - Code
+                    a. frontend/src/App.js
+                        i. Added the routes for:
+                            - AllStocks component
+                            - SingleStock component
+                            - 404 page
+                - Packages
+                    a. react-redux
+                    b. react-router-dom
+                    c. axios
+                    d. react-bootstrap
+                    e. redux
+
+        b. Backend
+            i. Added:
+                - Directories
+                    a. backend/models
+                        i. The directory for the data storage
+                        frameworks.
+                - Files
+                    a. backend/models/Stock.js
+                        i. The file that contains the Stock model.
+                    b. backend/index.js
+                        i. The file that contains the server & references
+                        the routes & model.
+                    c. backend/route.js
+                        i. The file that contains the routes for the 
+                        CRUD operations I need.
+                - Packages
+                    a. Express
+                    b. Mongoose
+                    c. Cors

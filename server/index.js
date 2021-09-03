@@ -23,21 +23,21 @@ mongoose
     // for the last call to finish before it starts the next one?
     // 
     
-    const retrieveStocks = () => {
-      let url = "http://localhost:8000"
-      axios
-        .get(`${url}/api/stocks`)
-        .then((response) => {
-          api.updatePrices(response.data);
-          console.log("Data has been updated");
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
+    // const retrieveStocks = () => {
+    //   let url = "http://localhost:8000"
+    //   axios
+    //     .get(`${url}/api/stocks`)
+    //     .then((response) => {
+    //       api.updatePrices(response.data);
+    //       console.log("Data has been updated");
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // };
     
-    setTimeout(function request() {
-      retrieveStocks();
-      setTimeout(request, 500);
-    }, 500)
+    // setTimeout(function request() {
+    //   retrieveStocks();
+    //   setTimeout(request, 500);
+    // }, 500)
   });

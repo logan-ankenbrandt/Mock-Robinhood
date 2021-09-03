@@ -12,9 +12,14 @@ function StocksList() {
   useEffect(() => {
     setTimeout(function request () {
       retrieveStocks();
-      setTimeout(request, 250);
-    }, 250);
+      setTimeout(request, 10000);
+    }, 10000);
   }, []);
+
+  // Create a local storage objec that will add each new stock
+  // price to an array in local storage
+
+  // const localStorage = window.localStorage.setItem('stocks', JSON.stringify(stocks));
 
   const retrieveStocks = ()  => {
     axios
