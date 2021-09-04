@@ -2,6 +2,7 @@ var axios = require('axios');
 
 function updatePrices(data) {
     let len = data.length;
+    
     const url = "http://localhost:8000";
     for (let i = 0; i < len; i++) {
         let price = data[i].price;

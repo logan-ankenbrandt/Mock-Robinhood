@@ -5,7 +5,9 @@ import SingleStock from "./pages/SingleStock";
 import Root from "./Root";
 
 
+
 function App() {
+
   return (
     <Root>
       <Switch>

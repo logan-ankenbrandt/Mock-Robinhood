@@ -3,6 +3,8 @@ import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Chart } from "react-google-charts";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 function SingleStock(props) {
     const [stock, getStock] = useState({});
@@ -13,8 +15,9 @@ function SingleStock(props) {
 
     useEffect(() => {
       retrieveStocks();
+      setLocalStoragePrice();
     });
-
+    
     const retrieveStocks = () => {
       axios
         .get(`${url}/api/stocks`)
@@ -24,6 +27,8 @@ function SingleStock(props) {
           for (let i = 0; i < dataLength; i++) {
             if (response.data[i].ticker === symbol) {
               getPrice(response.data[i].price);
+              // Store that price in an array in localStorage
+ 
             }
           }
         })
@@ -32,14 +37,29 @@ function SingleStock(props) {
         });
     };
 
-    // const localSymbol = window.localStorage.setItem('ticker', symbol);
-    // const localPrice = window.localStorage.setItem('price', price);
+    const setLocalStoragePrice = () => {
+      let dataLength = price.length;
+      let arr = [];
+      for (let i = 0; i < dataLength; i++) {
+        if (arr.includes(price[i])) {
+          continue;
+        } else {
+          arr.push(price[i]);
+        }
+      }
+      localStorage.setItem(symbol, JSON.stringify(arr));
+    };
+
+    
+    
     return (
       <Container>
         <h1>{symbol}</h1>
         <hr />
-        <p>{price[price.length - 1]}</p>
-        <Chart
+        {/*Change the font color*/}
+
+        <p style={{ color: "blue" }}>{price[price.length - 1]}</p>
+        {/* <Chart
           width={"100%"}
           height={"300px"}
           chartType="LineChart"
@@ -60,9 +80,11 @@ function SingleStock(props) {
             },
           }}
           rootProps={{ "data-testid": "1" }}
-        />
+        /> */}
       </Container>
     );
 }
 
-export default SingleStock;
+const mapStateToProps = (state) => ({});
+
+export default connect(mapStateToProps)(withRouter(SingleStock));

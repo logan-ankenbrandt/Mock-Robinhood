@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "seed": "chmod +x ./data/seed.sh && ./data/seed.sh",
+    "delete": "chmod +x ./data/delete.sh && ./data/delete.sh"
   },
   "keywords": [],
   "author": "",

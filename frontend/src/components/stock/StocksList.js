@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
 
 import Stock from './Stock';
 import axios from "axios";
@@ -12,14 +13,9 @@ function StocksList() {
   useEffect(() => {
     setTimeout(function request () {
       retrieveStocks();
-      setTimeout(request, 10000);
-    }, 10000);
+      setTimeout(request, 1000);
+    }, 1000);
   }, []);
-
-  // Create a local storage objec that will add each new stock
-  // price to an array in local storage
-
-  // const localStorage = window.localStorage.setItem('stocks', JSON.stringify(stocks));
 
   const retrieveStocks = ()  => {
     axios
@@ -41,4 +37,6 @@ function StocksList() {
   );
 }
 
-export default (withRouter(StocksList));
+const mapStateToProps = (state) => ({});
+
+export default connect(mapStateToProps)(withRouter(StocksList));

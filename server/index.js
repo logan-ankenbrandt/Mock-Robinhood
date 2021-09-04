@@ -19,25 +19,31 @@ mongoose
       console.log("Server has commenced");
       console.log(api);
     });
-    // How do I make the setInterval function wait
-    // for the last call to finish before it starts the next one?
-    // 
     
-    // const retrieveStocks = () => {
-    //   let url = "http://localhost:8000"
-    //   axios
-    //     .get(`${url}/api/stocks`)
-    //     .then((response) => {
-    //       api.updatePrices(response.data);
-    //       console.log("Data has been updated");
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // };
+    const retrieveStocks = () => {
+      let url = "http://localhost:8000"
+      axios
+        .get(`${url}/api/stocks`)
+        .then((response) => {
+          if (response.data.length > 0) {
+          api.updatePrices(response.data);
+          console.log("Data has been updated");
+          } else {
+            console.log("No data to update. (Hint: Use npm run seed!)");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
     
-    // setTimeout(function request() {
-    //   retrieveStocks();
-    //   setTimeout(request, 500);
-    // }, 500)
+    // If retrieveStocks() is called and
+    if (retrieveStocks() === 'data: []') {
+      console.log("No data to update. (Hint: Use npm run seed!)");
+    } else {
+        setTimeout(function request() {
+          retrieveStocks();
+        setTimeout(request, 500);
+      }, 500)
+    }
   });

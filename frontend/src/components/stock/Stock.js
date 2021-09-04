@@ -3,20 +3,18 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 
 const linkStyle = {
-  textDecoration: 'none',
-  color: 'light-blue',
+  textDecoration: "none",
+  color: "blue",
 };
+
 
 function Stock(props) {
 
     const displayStock = (props) => {
-        
-      // Update the stocks variable 
-      // every second.
       const { stocks } = props;
 
         if (stocks.length > 0) {
-          return stocks.map((stock, index) => {
+          return stocks.map((stock) => {
             return (
               <div>
                 <Link to={`/${stock.ticker}`} style={linkStyle} >

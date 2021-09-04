@@ -1,0 +1,5 @@
+curl http://localhost:8000/api/stocks -X POST -H "Content-Type: application/json" -d '{"ticker":"ABNB", "price":"180.56"}'
+curl http://localhost:8000/api/stocks -X POST -H "Content-Type: application/json" -d '{"ticker":"AMZN", "price":"3230.42"}'
+curl http://localhost:8000/api/stocks -X POST -H "Content-Type: application/json" -d '{"ticker":"MSFT", "price":"195.23"}'
+curl http://localhost:8000/api/stocks -X POST -H "Content-Type: application/json" -d '{"ticker":"SNOW", "price":"298.98"}'
+curl http://localhost:8000/api/stocks -X POST -H "Content-Type: application/json" -d '{"ticker":"TSLA", "price":"722.57"}'
