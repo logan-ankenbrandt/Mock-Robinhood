@@ -33,7 +33,6 @@ function SingleStock(props) {
               getPrice(response.data[i].price);
             }
           }
-          console.log(response.data);
         })
         .catch((error) => {
           console.log(`Error: ${error}`);

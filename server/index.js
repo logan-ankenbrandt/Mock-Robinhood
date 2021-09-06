@@ -17,7 +17,6 @@ mongoose
 
     app.listen(8000, () => {
       console.log("Server has started");
-      console.log(api);
     });
     
     const retrieveStocks = () => {
