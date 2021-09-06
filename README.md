@@ -1,6 +1,7 @@
 # **Gatsby-Robinhood**
 My project for Gatsby Events' Simple Robinhood challenge!
 
+![til](./frontend/public/GatsbyRobinhoodDemo.gif)
 
 
 ## **Table of Contents**
@@ -30,31 +31,34 @@ This project uses [MongoDB](https://mongodb.com/) and [Node.js](https://nodejs.o
 
 Below is a step-by-step guide to getting the project up and running on your local machine:
 
-***/frontend***
+***[/frontend](https://github.com/logan-ankenbrandt/Gatsby-Robinhood/blob/main/frontend/)***
 
 Run this in the `/frontend` directory
 
 ```
+$ cd frontend
 $ npm install
 $ npm start
 ```
 
-***/api***
+***[/api](https://github.com/logan-ankenbrandt/Gatsby-Robinhood/blob/main/api/)***
 
 Run this in the `/api` directory
 
 ```
+$ cd api
 $ npm install
 ```
 
 
-***/server***
+***[/server](https://github.com/logan-ankenbrandt/Gatsby-Robinhood/blob/main/server/)***
 
 Open two terminal windows, and run this in the `/server` directory
 
 *Terminal #1 (for basic installation & starting the server)* 
 
 ```
+$ cd server
 $ npm install
 $ npm start
 ```
@@ -62,6 +66,7 @@ $ npm start
 *Terminal #2 (for seeding & deleting the contents of the database)*
 
 ```
+$ cd server
 $ npm run seed
 $ npm run delete
 ```
@@ -70,4 +75,4 @@ $ npm run delete
 
 ## **Usage <a name = "usage"></a>**
 
-Add notes about how to use the system.
+Navigate to [here](http://localhost:3000/) to view the app!

@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const routes = require("./routes");
+const routes = require("./routes/routes");
 var cors = require("cors");
 const api = require("../api/index");
 var axios = require("axios");
@@ -16,7 +16,7 @@ mongoose
     app.use("/api", routes);
 
     app.listen(8000, () => {
-      console.log("Server has commenced");
+      console.log("Server has started");
       console.log(api);
     });
     
@@ -37,13 +37,8 @@ mongoose
         });
     };
     
-    // If retrieveStocks() is called and
-    if (retrieveStocks() === 'data: []') {
-      console.log("No data to update. (Hint: Use npm run seed!)");
-    } else {
-        setTimeout(function request() {
-          retrieveStocks();
-        setTimeout(request, 500);
-      }, 500)
-    }
+    // setTimeout(function request() {
+    //   retrieveStocks();
+    //   setTimeout(request, 1000);
+    // }, 1000)
   });

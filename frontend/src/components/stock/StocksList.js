@@ -13,8 +13,8 @@ function StocksList() {
   useEffect(() => {
     setTimeout(function request () {
       retrieveStocks();
-      setTimeout(request, 1000);
-    }, 1000);
+      setTimeout(request, 250);
+    }, 250);
   }, []);
 
   const retrieveStocks = ()  => {
@@ -22,12 +22,23 @@ function StocksList() {
       .get(`${url}/api/stocks`)
       .then((response) => {
         getStock(response.data);
+        response.data.forEach((stock) => {
+          const ticker = stock.ticker;
+          const price = stock.price;
+          const prices = JSON.parse(localStorage.getItem(ticker)) || [];
+          if (prices.length >= 300) {
+            prices.push(price);
+            prices.shift();
+          } else {
+            prices.push(price);
+          }
+          localStorage.setItem(ticker, JSON.stringify(prices));
+        });
       })
       .catch((error) => {
         console.log(`Error: ${error}`);
       });
   };
-
 
   return (
     <div>

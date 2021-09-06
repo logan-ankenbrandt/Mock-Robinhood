@@ -1,3 +1,4 @@
+brew install jq
 OUTPUT="$(curl http://localhost:8000/api/stocks)"
 
 for i in $(echo "${OUTPUT}" | jq -r '.[] | @base64'); do
@@ -8,5 +9,3 @@ for i in $(echo "${OUTPUT}" | jq -r '.[] | @base64'); do
   curl -X DELETE http://localhost:8000/api/stocks/${ID}
 done
 curl http://localhost:8000/api/stocks
-
-

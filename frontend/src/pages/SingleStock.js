@@ -9,14 +9,18 @@ import { withRouter } from "react-router-dom";
 function SingleStock(props) {
     const [stock, getStock] = useState({});
     const [price, getPrice] = useState(0);
+    const [chartData, getChartData] = useState([]);
     let { symbol } = useParams();
 
     const url = "http://localhost:8000";
 
     useEffect(() => {
-      retrieveStocks();
-      setLocalStoragePrice();
-    });
+      setTimeout(function request() {
+        retrieveStocks();
+        getLocalPrice();
+        setTimeout(request, 250);
+      }, 250);
+    }, []);
     
     const retrieveStocks = () => {
       axios
@@ -27,50 +31,39 @@ function SingleStock(props) {
           for (let i = 0; i < dataLength; i++) {
             if (response.data[i].ticker === symbol) {
               getPrice(response.data[i].price);
-              // Store that price in an array in localStorage
- 
             }
           }
+          console.log(response.data);
         })
         .catch((error) => {
           console.log(`Error: ${error}`);
         });
     };
 
-    const setLocalStoragePrice = () => {
-      let dataLength = price.length;
-      let arr = [];
-      for (let i = 0; i < dataLength; i++) {
-        if (arr.includes(price[i])) {
-          continue;
-        } else {
-          arr.push(price[i]);
-        }
-      }
-      localStorage.setItem(symbol, JSON.stringify(arr));
+    const getLocalPrice = () => {
+      let ticker = symbol;
+      let data = JSON.parse(localStorage.getItem(ticker));
+      let arr = []
+      data.forEach((item, index) => {
+        arr.push([index, item]);
+      })
+      arr.unshift(["x", ticker]);
+      getChartData(arr);
+      console.log(arr);
     };
 
-    
-    
     return (
       <Container>
         <h1>{symbol}</h1>
         <hr />
-        {/*Change the font color*/}
+        <h4 style={{ color: "blue" }}>{price}</h4>
 
-        <p style={{ color: "blue" }}>{price[price.length - 1]}</p>
-        {/* <Chart
+        <Chart
           width={"100%"}
           height={"300px"}
           chartType="LineChart"
           loader={<div>Loading Chart...</div>}
-          data={[
-            ["x", symbol],
-            // Add the each price from the price array as specific
-            // data points
-            [0, price[0]],
-            [1, price[1]],
-          ]}
+          data={chartData}
           options={{
             hAxis: {
               title: "Time",
@@ -80,7 +73,7 @@ function SingleStock(props) {
             },
           }}
           rootProps={{ "data-testid": "1" }}
-        /> */}
+        />
       </Container>
     );
 }

@@ -20,7 +20,7 @@ function Stock(props) {
                 <Link to={`/${stock.ticker}`} style={linkStyle} >
                   <hr />
                   <p>
-                    ({stock.ticker}) {stock.price[stock.price.length - 1]}
+                    ({stock.ticker}) {stock.price}
                   </p>
                 </Link>
               </div>
