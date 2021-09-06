@@ -75,4 +75,4 @@ $ npm run delete
 
 ## **Usage <a name = "usage"></a>**
 
-Navigate to [here](http://localhost:3000/) to view the app!
+Navigate [here](http://localhost:3000/) to view the app!
