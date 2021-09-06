@@ -54,7 +54,7 @@ This is the guide to how I implemented this API.
 * *Bottlenecks*
     * Database Updates
         * When I first implemented updates in the frontend, I found that the `setInterval()` function was ignorant to pending requests, and I needed a function that accomadated slower request fullfillment. 
-        * My resolution to this was on the frontend was to use a recursive version of the `setTimeout()` function to provide the system with more awareness of pending requests.
+        * My resolution to this on the frontend was to use a recursive version of the `setTimeout()` function to provide the system with more awareness of pending requests.
     * Historical Prices
         * This was a difficult challenge - here are a few of the steps in my process for solving this:
             * Initially, I tried to store every iteration of the price in the backend. However, requests quickly piled up as the data got much bigger, so I decided to delete values from the prices array every other iteration.
