@@ -31,7 +31,7 @@ This is the guide to the various components of the backend.
         * Referenced the routes that will be used to pass request through my server
         * Initialized cors so third-parties, such as the `frontend/` and the `api`, can make requests
         * Defined the retrieveStocks() function that will update the prices every second.
-* [server/routes.js](https://github.com/logan-ankenbrandt/Gatsby-Robinhood/blob/main/server/routes.js)
+* [server/routes/routes.js](https://github.com/logan-ankenbrandt/Gatsby-Robinhood/blob/main/server/routes/routes.js)
     * This is the file where I defined CRUD actions using the `axios` package such as:
         * `.post()` to upload new data to the database
         * `.get()` to retrieve & display data from the database
