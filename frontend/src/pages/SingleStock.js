@@ -49,7 +49,6 @@ function SingleStock(props) {
       })
       arr.unshift(["x", ticker]);
       getChartData(arr);
-      console.log(arr);
     };
 
     return (
