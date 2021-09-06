@@ -37,8 +37,8 @@ mongoose
         });
     };
     
-    // setTimeout(function request() {
-    //   retrieveStocks();
-    //   setTimeout(request, 1000);
-    // }, 1000)
+    setTimeout(function request() {
+      retrieveStocks();
+      setTimeout(request, 1000);
+    }, 1000)
   });
