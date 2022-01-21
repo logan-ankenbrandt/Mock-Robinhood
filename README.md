@@ -1,4 +1,4 @@
-# **Gatsby-Robinhood**
+# **Mock-Robinhood**
 My Mock-Robinhood project!
 
 ![til](./frontend/public/GatsbyRobinhoodDemo.gif)
