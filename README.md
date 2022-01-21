@@ -1,5 +1,5 @@
 # **Gatsby-Robinhood**
-My project for Gatsby Events' Simple Robinhood challenge!
+My Mock-Robinhood project!
 
 ![til](./frontend/public/GatsbyRobinhoodDemo.gif)
 
